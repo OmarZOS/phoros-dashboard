@@ -1,0 +1,146 @@
+<body>
+    <!-- Sidenav -->
+    <% include ../partials/sidebar %>
+        <!-- Main content -->
+        <div class="main-content">
+            <!-- Top navbar -->
+            <% include ../partials/navbar %>
+                <!-- Header -->
+                <% include ../partials/header %>
+                    <!-- Page content -->
+                    <div class="container-fluid mt--7">
+                        <!-- Table -->
+                        <div class="row">
+                            <div class="col-xl-6">
+                                <div class="card shadow">
+                                    <div id="world-map-markers table" style="overflow: hidden ">
+                                        <!-- <script src="https://d3js.org/d3.v4.js"></script>
+                                        <script src="https://d3js.org/topojson.v2.min.js"></script>
+                                        <script src="js/controllers/dashboard.js"></script> -->
+                                        <div class="card-header bg-transparent">
+                                            <div class="row align-items-center">
+                                                <div class="col">
+                                                    <h6 class="text-uppercase text-muted ls-1 mb-1">Overview</h6>
+                                                    <h2 class="mb-0">Geographic view</h2>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card-body">
+                                            <!-- Chart -->
+                                            <div class="chart">
+                                                <div class="card-body p-0">
+                                                    <div class="d-md-flex">
+                                                        <div id="world-map-markers" class="p-1 flex-fill " style="overflow: hidden">
+                                                            <div class="map"></div>
+                                                            <!-- Map will be created here -->
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- /.d-md-flex -->
+                                            </div>
+                                            <!-- <canvas id="chart-orders" class="chart-canvas"></canvas> -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card shadow">
+                                    <div class="card-header border-0">
+                                        <h3 class="mb-0">Measured data</h3>
+                                    </div>
+                                    <div class="card-header bg-transparent">
+                                        <div class="row align-items-center">
+                                            <div class="col">
+                                                <h6 class="text-uppercase text-muted ls-1 mb-1">Submit data</h6>
+                                                <h2 class="mb-0">Wells</h2>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-body align-items-center">
+                                        <!-- Chart -->
+                                        <div class="align-items-center">
+                                            <div class="navbar-brand p-0">
+                                                <div class="d-md-flex">
+                                                    <div class="p-1 flex-fill" style="overflow: hidden">
+                                                        <!-- Map will be created here -->
+                                                        <div class>
+                                                            <ul class="nav nav-pills ">
+                                                                <li class="nav-item mr-2 mr-md-0" data-toggle="chart" data-target="#chart-sales" data-update='{"data":{"datasets":[{"data":[0, 20, 10, 30, 15, 40, 20, 60, 60]}]}}' data-prefix="$" data-suffix="k">
+                                                                    <table class="table-responsive align-items-center table-flush ">
+                                                                        <tbody class="align-items-center table">
+                                                                            <form>
+                                                                                <% for(const insertable in scopes) { %>
+                                                                                    <%if(insertable!='DATE_INSERER_JAUG'&&insertable!='ID_JAUGE'&&insertable!='ID_USER'&&insertable!='ID_USER'){%>
+                                                                                        <tr>
+                                                                                            <th scope="col">
+                                                                                                <%if(insertable=='ID_MODEL'){%>
+                                                                                                    <strong>Model Name</strong>
+                                                                                                    <%} else {%>
+                                                                                                        <strong><%=insertable.toString().toLowerCase()%></strong>
+                                                                                                        <%}%>
+                                                                                            </th>
+
+                                                                                            <!-- /.form-group -->
+                                                                                            <%if(insertable!='DATE_INSERER_JAUG'&&insertable!='ID_JAUGE'&&insertable!='ID_USER'&&insertable!='ID_USER'){%>
+                                                                                                <td>
+                                                                                                    <div class=" navbar-search  mb-0 form-inline d-none d-md-flex  form-group mb-0">
+                                                                                                        <div class="input-group input-group-alternative" style="background-color:azure; ">
+                                                                                                            <div class="input-group-prepend">
+                                                                                                                <span class="input-group-text"><i class="fas ni-fat-add" style="color:lightsalmon;"></i></span>
+                                                                                                            </div>
+                                                                                                            <%if(scopes[insertable].Type=='date'){%>
+                                                                                                                <input class="form-control" type="date" class="datepicker" style="color:black;" value="11/11/2020">
+                                                                                                                <%} else {%>
+                                                                                                                    <%if(insertable=='ID_MODEL'){%>
+                                                                                                                        <div class="form-group  navbar-search"> <label>Choose prediction model</label> <select class="form-control select2 select2-hidden-accessible" style="width: 100%;" tabindex="-1"
+                                                                                                                                aria-hidden="true">
+                                                                                                                    <option selected="selected"><strong>Gilbert</strong></option>
+                                                                                                                    <option><strong>ANN</strong></option>
+                                                                                                                </select> </div>
+                                                                                                                        <%} else {%> <input class="form-control" placeholder="insert value.." type="text" style="color:black;">
+                                                                                                                            <% } %>
+                                                                                                                                <% } %>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </td>
+                                                                                                <% } %>
+                                                                                        </tr>
+                                                                                        <%}%>
+                                                                                            <% } %>
+                                                                                                <td class="align-items-center">
+                                                                                                    <div class="align-items-center navbar-search  ">
+                                                                                                        <div class="input-group input-group-alternative" style="background-color:azure; ">
+                                                                                                            <div class="input-group-prepend">
+                                                                                                                <span class="input-group-text"><i class="fas ni-fat-add" style="color:lightsalmon;"></i></span>
+                                                                                                            </div>
+                                                                                                            <input class="form-control" type="submit" value="Submit" style="
+                                                                                                                                                                                                        padding: 5px;
+                                                                                                    color: black;
+                                                                                                    font-weight: 700;">
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </td>
+                                                                            </form>
+                                                                        </tbody>
+                                                                    </table>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- /.d-md-flex -->
+                                        </div>
+                                        <!-- <canvas id="chart-orders" class="chart-canvas"></canvas> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Footer -->
+                        <% include ../partials/footer %>
+                    </div>
+        </div>
+
+        <!-- Include scripts -->
+        <% include ../partials/scripts %>
+</body>
