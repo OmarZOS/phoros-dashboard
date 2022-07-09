@@ -4,7 +4,7 @@
         <!-- Main content -->
         <div class="main-content">
             <!-- Top navbar -->
-            <% include ../partials/navbar %>
+            <% include ../partials/navbar_query_data %>
                 <!-- Header -->
                 <% include ../partials/header %>
                     <!-- Page content -->
@@ -23,6 +23,21 @@
                                                     <h6 class="text-uppercase text-muted ls-1 mb-1">Click on the graph elements to build your query</h6>
                                                     <h2 class="mb-0">Schema view</h2>
                                                 </div>
+                                                <div class="dropdown">
+                                                    <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                                      twitter
+                                                    <span class="caret"></span>
+                                                    </button>
+                                                    <ul class="dropdown-menu">
+                                                        <li><a class="dropdown-item" href="#" onclick="grapher('twitter')">twitter</a></li>
+                                                        <li><a class="dropdown-item" href="#" onclick="grapher('facebook')"> Facebook</a></li>
+                                                        <li><a class="dropdown-item" href="#" onclick="grapher('linkedin')"> Linkedin</a></li>
+                                                        <li><a class="dropdown-item" href="#" onclick="grapher('youtube')"> Youtube</a></li>
+
+                                                        
+                                                      </ul>
+                                                    </div> 
+                                                    
                                             </div>
                                         </div>
                                         <div class="card-body">
@@ -47,13 +62,19 @@
                                 <div class="card shadow">
                                     <div class="card-header bg-transparent">
                                         <div class="row align-items-center">
-                                            <div class="col">
+                                            <div class="col" >
                                                 <h6 class="text-uppercase text-muted ls-1 mb-1">You can specify more conditions in here</h6>
                                                 <h2 class="mb-0">Query builder</h2>
+                                               
+                                            </div>
+                                            <div class="col-xl-3"  >
+                                                <button type="button" class="btn btn-primary" onclick="Send_Req('queryStructure')">Submit</button>
+                                                <% include ../partials/transformer%>
+                                               
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="card-body align-items-center">
+                                    <div class="card-body align-items-center">  
                                         <!-- Chart -->
                                         <div class="align-items-center">
                                             <div class="navbar-brand p-0">
@@ -65,7 +86,14 @@
                                                                 <li class="nav-item mr-2 mr-md-0" data-toggle="chart" data-target="#chart-sales" data-update='{"data":{"datasets":[{"data":[0, 20, 10, 30, 15, 40, 20, 60, 60]}]}}' data-prefix="$" data-suffix="k">
                                                                     <table class="table-responsive align-items-center table-flush ">
                                                                         <tbody class="align-items-center table">
-                                                                            <div id="queryStructure"></div>
+                                                                            <div id="queryStructure" >
+
+
+
+                                                                                
+                                                                            </div>
+                                                                           
+                                                                           
                                                                         </tbody>
                                                                     </table>
                                                                 </li>
@@ -85,7 +113,10 @@
                         <% include ../partials/footer %>
                     </div>
         </div>
+<script>
 
+document.getElementById("miltiselecttrans").style.display = "block"
+</script>
         <!-- Include scripts -->
         <% include ../partials/scripts %>
 </body>

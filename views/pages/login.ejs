@@ -1,7 +1,8 @@
 <body class="bg-default">
     <div class="main-content">
-        <!-- Navbar -->
-        <% include ../partials/auth/navbar %>
+        <!-- Navbar <% include ../partials/auth/navbar %>-->
+        
+        
             <!-- Header -->
             <% include ../partials/auth/header %>
                 <!-- Page content -->
@@ -14,7 +15,7 @@
                                         <small>Please sign in with your provided credentials</small>
                                     </div>
                                     <% if (locals.messages && messages.success) { %>
-                                        <div class="mb-3">
+                                        <div class="mb-3">  
                                             <small class="text-success font-weight-700"><%= messages.success %></small>
                                         </div>
                                         <% } %>
@@ -77,10 +78,10 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> 
     </div>
-    <!-- Footer -->
-    <% include ../partials/auth/footer %>
+    <!-- Footer <% include ../partials/auth/footer %> -->
+   
 
         <!-- Include scripts -->
         <% include ../partials/scripts %>
